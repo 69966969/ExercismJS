@@ -127,7 +127,7 @@ The members of the poetry club are really clever.
 The poem mentioned before is also _telestich_, which means that the last letter of each sentence also forms a word:
 
 ```text
-Stands so high
+Stands so high   
 Huge hooves too
 Impatiently waits for
 Reins and harness

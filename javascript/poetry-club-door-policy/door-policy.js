@@ -27,7 +27,7 @@
  * @returns {string}
  */
 export function frontDoorResponse(line) {
-  throw new Error('Remove this line and implement the function');
+  return line[0];    
 }
 
 /**
@@ -38,8 +38,15 @@ export function frontDoorResponse(line) {
  * @returns {string} the front door password
  */
 export function frontDoorPassword(word) {
-  throw new Error('Remove this line and implement the function');
+   const firstLetter = word.slice(0, 1)
+   const oneUpper = firstLetter.toUpperCase();
+   const restOfTheWord = word.slice(1)
+   const restLower = restOfTheWord.toLowerCase();
+   const capitalizedWord = oneUpper + restLower
+   return capitalizedWord;
 }
+
+
 
 /**
  * Respond with the correct character, given the line of the
@@ -49,7 +56,9 @@ export function frontDoorPassword(word) {
  * @returns {string}
  */
 export function backDoorResponse(line) {
-  throw new Error('Remove this line and implement the function');
+  const lineTrim = line.trim();
+  const lastLetter = lineTrim.slice(-1);
+  return lastLetter;
 }
 
 /**
@@ -60,5 +69,7 @@ export function backDoorResponse(line) {
  * @returns {string} the back door password
  */
 export function backDoorPassword(word) {
-  throw new Error('Remove this line and implement the function');
+  const theWord = frontDoorPassword(word);
+  const password = `${theWord}, please`;
+  return password;
 }
