@@ -15,29 +15,7 @@ It is written with the `while` keyword followed by a condition wrapped in round 
 while (condition) {
   // code that is executed repeatedly as long as the condition is true
 }
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                                                                                                    
+```                   
 JavaScript also has a do-while loop.
 Here the condition is checked after the loop body was executed.
 This is useful when the condition depends on evaluations done in the body.

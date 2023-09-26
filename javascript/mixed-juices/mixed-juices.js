@@ -16,7 +16,10 @@ export function timeToMixJuice(name) {
     case 'Pure Strawberry Joy':
       minutes = 0.5;
       break;
-    case 'Energizer' && 'Green Garden':
+    case 'Energizer':
+      minutes = 1.5;
+      break;
+    case 'Green Garden':
       minutes = 1.5;
       break;
     case 'Tropical Island':
@@ -42,24 +45,37 @@ export function timeToMixJuice(name) {
  */
 export function limesToCut(wedgesNeeded, limes) {
     let wedgesCut = 0;
-    const removeLime = limes.shift();
-    while (wedgesCut < wedgesNeeded) {
-      switch(limes) {
-        case ['small']:
-          wedgesCut += 6;
-          removeLime;
+    let totalWedgesCut = 0
+    let i = 0;
+    while ((i < limes.length ) && (totalWedgesCut <= wedgesNeeded)) {
+      let limeType = limes[0];
+      switch(limes[i]) {
+        case 'small':
+          wedgesCut = 6;
           break;
-        case ['medium']:
-          wedgesCut += 8;
-          removeLime;
+        case 'medium':
+          wedgesCut = 8;
           break;
-        case ['large']:
-          wedgesCut += 10;
-          removeLime;
+        case 'large':
+          wedgesCut = 10;
           break;
-      }
+        default: 
+          wedgesCut = 0;
+          break;
+        }
+        totalWedgesCut += wedgesCut;
+          if (wedgesNeeded !== 0) {
+            i++
+          }
+        
     }
-    return wedgesCut;
+    
+    return i;
+
+    // do {
+    //   if ()
+      
+    // } while (wedgesCut < wedgesNeeded && limes.length > 0);
 }
 
 /**
@@ -70,5 +86,17 @@ export function limesToCut(wedgesNeeded, limes) {
  * @returns {string[]} remaining orders after the time is up
  */
 export function remainingOrders(timeLeft, orders) {
-  throw new Error('Please implement the remainingOrders function');
-}
+    let time = 0;
+    let i = 0;
+    let newArray = [];
+    do {
+      time = timeToMixJuice(orders[i])
+      timeLeft = timeLeft - time
+      i++;
+      newArray = orders.slice(0,i)
+      console.log(newArray)
+    } while(timeLeft > 0)
+    orders.splice(0, newArray.length)
+    return orders
+  }
+
