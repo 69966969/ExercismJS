@@ -213,7 +213,6 @@ addSecretIngredient(friendsList, myList);
 console.log(myList);
 // => ['noodles', 'meat', 'sauce', 'mozzarella', 'kampot pepper']
 ```
-
 ## 5. Scale the recipe
 
 The amounts listed in your cookbook only yield enough lasagna for two portions.
